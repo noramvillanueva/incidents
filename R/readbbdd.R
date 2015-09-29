@@ -1,7 +1,6 @@
 # LECTURA AUTOMATIZADA BBDD y UNION
 readbbdd <- function(file = file, file2 = NULL){
   dat=NULL
-  res = c()
   lista = as.vector(read.table(paste0( "", file, "" )))  #
   lista = as.vector(lista[,1])
   nlista = length(lista)
