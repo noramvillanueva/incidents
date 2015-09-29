@@ -1,5 +1,30 @@
-hour2day <- function(dat){
-  
+#' Creación de la base de datos diaria
+#' 
+#' @description La función crea una nueva base de datos diaria, es
+#' decir, resume la información horaria en información diaria. 
+#' Para ello se han creado nuevas variables. Por ejemplo, temperatura
+#' ambiente mínima, máxima o media. 
+#' 
+#' @param datos La base de datos creada con la función inci.
+#' 
+#' @author Nora M. Villanueva y Javier Roca Pardinas
+#' 
+#' @examples
+#' library(incidents)
+#' # Ojo, tarda unos minutos
+#' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
+#' # misdatos2<-inci(misdatos)
+#' # datosdia <- hour2day(misdatos2)
+#' # elimino las variables de impulsion y retorno tanto de agua,
+#' # como de aire.  
+#' # datosdia <- datosdia[,c(1:22, 32,33)]
+#' 
+#' @import dplyr
+#' @export
+
+
+hour2day <- function(datos){
+dat <- datos
 # max, min, mean t.ambiente tienda cerrada. 
 aux0 <- filter(dat, ano == 2014, apertura.tienda == 0)
 
@@ -23,10 +48,6 @@ damb.on$amb.max.on[damb.on$amb.max.on=="NaN"]=NA; damb.on$amb.min.on[damb.on$amb
 damb.on$amb.mean.on[damb.on$amb.mean.on=="NaN"]=NA
 
 #mean t.exterior durante horario comercial  
-#      -> filtro cuando tienda abierta. 
-#      -> filtro cuando maquina ON 
-#      ->Si filtro solo tienda abierta elimino dias que no encendieron maquina
-#        ej. 12/10 A61699 tienda abierta y maquina OFF 
 aux1 <- filter(dat, ano == 2014, apertura.tienda == 1 , estado.maquina == 1)
 
 xx <- group_by(aux1, tienda, maquina, mes, dia, tipo,ciudad)
@@ -82,7 +103,7 @@ dcon$con.mean[dcon$con.mean == "NaN"]=NA
 
 
 
-#incidencias, incidencias1(enfriamiento, "verano"), incidencias2(calentamiento, "invierno") al dia
+#inci1(enfriamiento, "verano"), inci2(calentamiento, "invierno") al dia
 dinci<-summarise(group_by(aux1, tienda, maquina, mes, dia, tipo), 
                  inci = max(inci), inci1 = max(inci1), inci2 = max(inci2))  
 
@@ -114,8 +135,6 @@ dhor<-dhor[,-6]
 
 #############################
 ## UNION BASES DE DATOS
-#dd <- full_join(damb,dext)
-#dd<-full_join(dd, dinci)
 dd<-full_join(dd, damb.on)
 dd<-full_join(dd,dgen)
 dd<-full_join(dd,dcli)
@@ -127,6 +146,5 @@ dd<-full_join(dd,dcon)
 dd<-full_join(dd,dhor)
 inci5d[is.na(dd$inci)]=NA
 dfin<-mutate(data.frame(dd),inci.5d = inci5d)
-
 }
 

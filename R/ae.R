@@ -1,7 +1,30 @@
+#' Análisis exploratorio de los datos
+#' 
+#' @description La función lleva a cabo un pequeño análisis
+#' exploratorio de los datos. Calcula el número total de 
+#' incidencias, las incidencias por tipo, las incidencias 
+#' por mes, y por tipo y por mes, tanto para las incidencias
+#' provocadas en régimen de enfriamiento como de calentamiento.
+#' 
+#' @param datos La base de datos que se creó utilizando la 
+#' función inci. 
+#' 
+#' @author Nora M. Villanueva y Javier Roca Pardinas
+#' 
+#' @examples
+#' library(incidents)
+#' # Ojo, tarda unos minutos
+#' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
+#' # misdatos2<-inci(misdatos)
+#' # misdatos2 <-misdatos2[,-c(7,8)] 
+#' # mianalisis <- ae(misdatos2)
+#' 
+#' @export
 
-ae <- function(dat){
-  
-  # ENFRIAMIENTO
+
+ae <- function(datos){
+dat <- datos  
+
   inc2 <- filter(dat, inci1 == 1, ano == 2014)
   mis2 <- distinct(inc2, maquina, fecha)
   ntot2 <- length(mis2[ ,1])
@@ -14,8 +37,7 @@ ae <- function(dat){
   f <- prop.table(t)*100
   tenf <- table(inctipo1enf$tipo,inctipo1enf$mes) #enf
 
-  
-  # CALENTAMIENTO
+
   inc3 <- filter(dat, inci2 == 1, ano == 2014)
   mis3 <- distinct(inc3, maquina, fecha)
   ntot3 <- length(mis3[ ,1])

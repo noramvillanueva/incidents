@@ -1,10 +1,35 @@
-# LECTURA AUTOMATIZADA BBDD y UNION
+#' Lectura y unión de base de datos
+#' 
+#' @description La función permite leer muchos archivos y crear 
+#' una única base de datos. Si la base de datos final contiene muchos
+#' datos, esta función puede tardar bastante minutos.
+#' 
+#' 
+#' @param file Un archivo con extensión .txt (por ejemplo). 
+#' Se incluye  el nombre de los archivos que van a ser leídos
+#' posteriormente.   
+#' @param file2 Un archivo con extensión .txt (por ejemplo).
+#' Se incluye el nombre de los archivos que van a ser leídos 
+#' posteriormente. Este segundo archivo contiene por ejemplo la variable 
+#' Temperatura exterior y queremos unirla a la base de datos 
+#' final. 
+#' @author Nora M. Villanueva y Javier Roca Pardinas
+#' 
+#' @examples
+#' library(incidents)
+#' # Ojo, tarda unos minutos
+#' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
+#' 
+#' @import dplyr
+#' @export
+#' 
+
 readbbdd <- function(file = file, file2 = NULL){
   dat=NULL
   lista = as.vector(read.table(paste0( "", file, "" )))  #
   lista = as.vector(lista[,1])
   nlista = length(lista)
-  source("fpreparafechas.R")
+ # source("~/R/fpreparafechas.R")
 
   if(!is.null(file2)){
     # lectura de otra variable 
@@ -30,7 +55,7 @@ for (i in 1:nlista) {
 
         if(aux2[1] == tienda){
           tienda2 <- aux2[1]    
-          datos2 <- read.csv2(file2) #paste0("/Users/Nora/Dropbox/Compartidas/ITMATI_ecomt/Correo\ 4\ -\ Temperaturas\ Exteriores/TaExterior/",fichero2,"")
+          datos2 <- read.csv2(file2) 
           alldat <- merge( datos, datos2, by.x = "Fecha", by.y = "Fecha", all.x = TRUE )
         }
         
