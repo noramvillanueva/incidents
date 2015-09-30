@@ -19,7 +19,7 @@ provocadas en régimen de enfriamiento como de calentamiento.
 }
 \examples{
 library(incidents)
-# Ojo, tarda unos minutos
+## Ojo, tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
 # misdatos2 <-misdatos2[,-c(7,8)]

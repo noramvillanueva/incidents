@@ -40,12 +40,13 @@ library(incidents)
 # Ojo, tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
+# misdatos2 <-misdatos2[,-c(7,8)]
 # datosdia <- hour2day(misdatos2)
-# elimino las variables de impulsion y retorno tanto de agua,
-# como de aire.
+## Elimino las variables de impulsion y retorno tanto de agua,
+## como de aire.
 # datosdia <- datosdia[,c(1:22, 32,33)]
-# Por ejemplo: queremos predecir si va a haber incidencia
-# en una tienda con los siguientes valores:
+## Por ejemplo: queremos predecir si va a haber incidencia
+## en una tienda con los siguientes valores:
 # datos2pred <-data.frame (amb.max = 40, amb.mean.on = 5,
 #              cli.mean = 150, inci.5d = 3)
 # modelpred(data = datosdia, pred.days = 1, newdata = datos2pred)

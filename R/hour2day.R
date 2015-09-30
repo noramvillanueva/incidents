@@ -11,12 +11,12 @@
 #' 
 #' @examples
 #' library(incidents)
-#' # Ojo, tarda unos minutos
+#' ## Ojo, tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # datosdia <- hour2day(misdatos2)
-#' # elimino las variables de impulsion y retorno tanto de agua,
-#' # como de aire.  
+#' ## Elimino las variables de impulsion y retorno tanto de agua,
+#' ## como de aire.  
 #' # datosdia <- datosdia[,c(1:22, 32,33)]
 #' 
 #' @import dplyr

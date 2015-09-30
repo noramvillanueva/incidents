@@ -28,17 +28,32 @@
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # misdatos2 <-misdatos2[,-c(7,8)] 
-#' # mianalisis <- monitoring(misdatos2, año = 2014, mes = 5,
-#' #                dia = 23, tienda = "T1001", maquina = "A61702")
+#' # monitoring(misdatos2, año = 2014, mes = 5,
+#' #    dia = 23, tienda = "T1001", maquina = "A61702")
 #' 
 #' 
 #' 
 #' @export
 #' 
 #' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 monitoring<-function(dat, año = año, mes = mes, dia = dia, 
                             tienda = tienda, maquina = maquina){
-  source("fmonitoringnew.R")
+#  source("fmonitoringnew.R")
   
  for (i in dia) {
     fmonitoringnew(dia = i, mes = mes, año = año, 

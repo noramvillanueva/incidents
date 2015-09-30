@@ -21,7 +21,7 @@
 #' 
 #' @examples
 #' library(incidents)
-#' # Ojo, tarda unos minutos
+#' ## Ojo, tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # elimino las variables: impulsion.agua.fria e impulsion.agua.caliente
@@ -42,8 +42,7 @@ cal <- dat$estado.maquina == 1 &
 dat$newcon[enf] <- 22
 dat$newcon[cal] <- 20
 
-#
-source("fnuminci12.R")
+#source("fnuminci12.R")
 resul <- fnuminci12(data = dat) 
 dat$inci <- resul$inci
 dat$inci1 <- resul$inci1

@@ -13,7 +13,7 @@
 #' 
 #' @examples
 #' library(incidents)
-#' # Ojo, tarda unos minutos
+#' ## Ojo, tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # misdatos2 <-misdatos2[,-c(7,8)] 
@@ -33,8 +33,8 @@ dat <- datos
   inctipo1enf <- distinct(inctipoenf, maquina, fecha)
   incidenciastipoenf <- summarise(inctipo1enf, ntipo = n())
   
-  t <- table(mis2$mes)
-  f <- prop.table(t)*100
+  t1 <- table(mis2$mes)
+  f1 <- prop.table(t1)*100
   tenf <- table(inctipo1enf$tipo,inctipo1enf$mes) #enf
 
 
@@ -45,8 +45,8 @@ dat <- datos
   inctipocal <- group_by(inc3, tipo)
   inctipo1cal <- distinct(inctipocal, maquina, fecha)
   incidenciastipocal <- summarise(inctipo1cal, ntipo = n())
-  t3 <- table(mis3$mes)
-  f3 <- prop.table(t3)*100
+  t2 <- table(mis3$mes)
+  f2 <- prop.table(t2)*100
   tcal <- table(inctipo1cal$tipo,inctipo1cal$mes) #cal
   cat("---------------------", "\n")
   cat("Régimen Enfriamiento", "\n")
@@ -57,7 +57,7 @@ dat <- datos
   print(incidenciastipoenf)
   cat("", "\n")
   cat("Número incidencias por mes:", "\n")
-  print(rbind(t,f))
+  print(rbind(t1,f1))
   cat("", "\n")
   cat("Número incidencias por tipo y por mes:", "\n")
   print(tenf)
@@ -70,7 +70,7 @@ dat <- datos
   print(incidenciastipocal)
   cat("", "\n")
   cat("Número incidencias por mes:",  "\n")
-  print(rbind(t3,f3))
+  print(rbind(t2,f2))
   cat("", "\n")
   cat("Número incidencias por tipo y por mes:", "\n")
   print(tcal)

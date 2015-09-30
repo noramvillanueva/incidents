@@ -17,7 +17,7 @@
 #' 
 #' @examples
 #' library(incidents)
-#' # Ojo, tarda unos minutos
+#' ## Ojo, tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
 #' 
 #' @import dplyr
@@ -32,7 +32,6 @@ readbbdd <- function(file = file, file2 = NULL){
  # source("~/R/fpreparafechas.R")
 
   if(!is.null(file2)){
-    # lectura de otra variable 
     lista2 = as.vector(read.table(paste0( "", file2, "" )))
     lista2 = as.vector(lista2[,1])
     nlista2 = length(lista2)
@@ -73,8 +72,6 @@ for (i in 1:nlista) {
       dat <- datos }  
 }
   
-  
-  # ordeno los datos
   ii=order(dat$tienda, dat$maquina,dat$ano,dat$mes,dat$dia,dat$hora,dat$minuto)
   dat=dat[ii,]
   
@@ -103,7 +100,6 @@ for (i in 1:nlista) {
     dat$ciudad[ii] <- ciudad[j]  
   }
   
-  # cambio nombre variables -> minusculas
   dat<-rename(dat, consigna = Consigna, ambiente = Ambiente, impulsion.aire = Impulsion.aire,
               retorno.aire =  Retorno.aire, impulsion.agua = Impulsion.agua, 
               impulsion.agua.fria = Impulsion.agua.fria, 

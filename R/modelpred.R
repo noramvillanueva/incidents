@@ -34,12 +34,13 @@
 #' # Ojo, tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
+#' # misdatos2 <-misdatos2[,-c(7,8)]
 #' # datosdia <- hour2day(misdatos2)
-#' # elimino las variables de impulsion y retorno tanto de agua,
-#' # como de aire.  
+#' ## Elimino las variables de impulsion y retorno tanto de agua,
+#' ## como de aire.  
 #' # datosdia <- datosdia[,c(1:22, 32,33)]
-#' # Por ejemplo: queremos predecir si va a haber incidencia 
-#' # en una tienda con los siguientes valores:
+#' ## Por ejemplo: queremos predecir si va a haber incidencia 
+#' ## en una tienda con los siguientes valores:
 #' # datos2pred <-data.frame (amb.max = 40, amb.mean.on = 5, 
 #' #              cli.mean = 150, inci.5d = 3)
 #' # modelpred(data = datosdia, pred.days = 1, newdata = datos2pred)
@@ -81,7 +82,6 @@ family = "binomial", data = dat)
 
 muhat1 <- predict(m1, newdata = newdata, type = "response")
 
-#pred.tiendas<-data.frame(dat$tienda, round(muhat1,2))
 pred1 <- ifelse(muhat1 >= 0.5,1,0)
 
 
@@ -105,7 +105,6 @@ m2=gam(inci2~s(amb.mean.on)+ s(inci.5d, k=5)  + s(cli.mean) ,
        family="binomial", data=dat)
 
 muhat2=predict(m2, newdata = newdata, type="response")
-#data.frame(test$inci1,round(muhat1c,2))
 pred2=ifelse(muhat2 >= 0.5,1,0)
 
 

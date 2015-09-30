@@ -24,7 +24,7 @@ datos, esta función puede tardar bastante minutos.
 }
 \examples{
 library(incidents)
-# Ojo, tarda unos minutos
+## Ojo, tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
 }
 \author{

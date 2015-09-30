@@ -27,7 +27,7 @@ del aire es mayor que la temperatura ambiente + 5 C.
 }
 \examples{
 library(incidents)
-# Ojo, tarda unos minutos
+## Ojo, tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
 # elimino las variables: impulsion.agua.fria e impulsion.agua.caliente
