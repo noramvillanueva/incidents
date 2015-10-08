@@ -2,30 +2,31 @@
 % Please edit documentation in R/readbbdd.R
 \name{readbbdd}
 \alias{readbbdd}
-\title{Lectura y unión de base de datos}
+\title{Lectura y union de base de datos}
 \usage{
 readbbdd(file = file, file2 = NULL)
 }
 \arguments{
-\item{file}{Un archivo con extensión .txt (por ejemplo).
-Se incluye  el nombre de los archivos que van a ser leídos
+\item{file}{Un archivo con extension .txt (por ejemplo).
+Se incluye  el nombre de los archivos que van a ser leidos
 posteriormente.}
 
-\item{file2}{Un archivo con extensión .txt (por ejemplo).
-Se incluye el nombre de los archivos que van a ser leídos
-posteriormente. Este segundo archivo contiene por ejemplo la variable
-Temperatura exterior y queremos unirla a la base de datos
-final.}
+\item{file2}{Un archivo con extension .txt (por ejemplo).
+Se incluye el nombre de los archivos que van a ser leidos
+posteriormente. Este segundo archivo contiene por ejemplo
+la variable Temperatura exterior y queremos unirla a la
+base de datos final.}
 }
 \description{
-La función permite leer muchos archivos y crear
-una única base de datos. Si la base de datos final contiene muchos
-datos, esta función puede tardar bastante minutos.
+La funcion permite leer muchos archivos y crear
+una unica base de datos. Si la base de datos final contiene
+muchos datos, esta funcion puede tardar bastante minutos.
 }
 \examples{
 library(incidents)
-## Ojo, tarda unos minutos
-# misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
+## Tarda unos minutos
+# misdatos <- readbbdd(file = "lista_all.txt",
+#  file2 = "lista.txt")
 }
 \author{
 Nora M. Villanueva y Javier Roca Pardinas

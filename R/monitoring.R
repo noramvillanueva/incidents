@@ -1,18 +1,18 @@
-#' Análisis exploratorio de los datos
+#' Analisis exploratorio de los datos
 #' 
-#' @description La función hace un gráfico, para una tienda, una 
-#' máquina, un año, un mes y un día. En él se representan todas 
+#' @description La funcion hace un grafico, para una tienda, una 
+#' maquina, un anho, un mes y un dia. En el se representan todas 
 #' las variables como: temperatura ambiente, temperatura exterior,
-#'  consumos general y clima, temperatura de impulsión y retorno 
-#'  de agua, y temperatura de impulsión y retorno de aire. 
+#'  consumos general y clima, temperatura de impulsion y retorno 
+#'  de agua, y temperatura de impulsion y retorno de aire. 
 #' 
-#' @param datos La base de datos que se creó utilizando la 
-#' función inci. 
-#' @param año El año que se quiere representar.
+#' @param datos La base de datos que se creo utilizando la 
+#' funcion inci. 
+#' @param ano El anho que se quiere representar.
 #' 
 #' @param mes El mes que se quiere representar.
 #' 
-#' @param dia El día que se quiere representar.
+#' @param dia El dia que se quiere representar.
 #' 
 #' @param tienda La tienda que se quiere representar,
 #' entre comillas. 
@@ -24,11 +24,12 @@
 #' 
 #' @examples
 #' library(incidents)
-#' # Ojo, tarda unos minutos
-#' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
+#' ##  Tarda unos minutos
+#' # misdatos <- readbbdd(file = "lista_all.txt", 
+#' #              file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # misdatos2 <-misdatos2[,-c(7,8)] 
-#' # monitoring(misdatos2, año = 2014, mes = 5,
+#' # monitoring(misdatos2, ano = 2014, mes = 5,
 #' #    dia = 23, tienda = "T1001", maquina = "A61702")
 #' 
 #' 
@@ -51,13 +52,13 @@
 
 
 
-monitoring<-function(dat, año = año, mes = mes, dia = dia, 
+monitoring<-function(datos, ano = ano, mes = mes, dia = dia, 
                             tienda = tienda, maquina = maquina){
-#  source("fmonitoringnew.R")
+
   
  for (i in dia) {
-    fmonitoringnew(dia = i, mes = mes, año = año, 
+    fmonitoringnew(dia = i, mes = mes, ano = ano, 
                    tienda = tienda, maquina = maquina, 
-                   dat = dat, mititulo = paste0(i, "/", mes, "/", año))
+                   dat = dat, mititulo = paste0(i, "/", mes, "/", ano))
   }
 }

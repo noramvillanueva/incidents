@@ -1,17 +1,17 @@
-#' Creación de la base de datos diaria
+#' Creacion de la base de datos diaria
 #' 
-#' @description La función crea una nueva base de datos diaria, es
-#' decir, resume la información horaria en información diaria. 
-#' Para ello se han creado nuevas variables. Por ejemplo, temperatura
-#' ambiente mínima, máxima o media. 
+#' @description La funcion crea una nueva base de datos diaria, es
+#' decir, resume la informacion horaria en informacion diaria. 
+#' Para ello se han creado nuevas variables. Por ejemplo,
+#'  temperatura ambiente minima, maxima o media. 
 #' 
-#' @param datos La base de datos creada con la función inci.
+#' @param datos La base de datos creada con la funcion inci.
 #' 
 #' @author Nora M. Villanueva y Javier Roca Pardinas
 #' 
 #' @examples
 #' library(incidents)
-#' ## Ojo, tarda unos minutos
+#' ## Tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # datosdia <- hour2day(misdatos2)
@@ -33,7 +33,8 @@ damb<-summarise(group_by(aux0, tienda, maquina, mes, dia, tipo,ciudad),
              amb.min = min(ambiente, na.rm = TRUE),
              amb.mean = mean(ambiente, na.rm = TRUE))
  
-damb$amb.max[damb$amb.max=="NaN"]=NA; damb$amb.min[damb$amb.min=="NaN"]=NA
+damb$amb.max[damb$amb.max=="NaN"]=NA
+damb$amb.min[damb$amb.min=="NaN"]=NA
 damb$amb.mean[damb$amb.mean=="NaN"]=NA
 
 
@@ -44,7 +45,8 @@ damb.on<-summarise(group_by(aux00, tienda, maquina, mes, dia, tipo,ciudad),
                 amb.min.on = min(ambiente, na.rm = TRUE),
                 amb.mean.on = mean(ambiente, na.rm = TRUE))
 
-damb.on$amb.max.on[damb.on$amb.max.on=="NaN"]=NA; damb.on$amb.min.on[damb.on$amb.min.on=="NaN"]=NA
+damb.on$amb.max.on[damb.on$amb.max.on=="NaN"]=NA; 
+damb.on$amb.min.on[damb.on$amb.min.on=="NaN"]=NA
 damb.on$amb.mean.on[damb.on$amb.mean.on=="NaN"]=NA
 
 #mean t.exterior durante horario comercial  

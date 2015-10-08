@@ -1,9 +1,12 @@
 Package: incidents
 Type: Package
-Title: What the package does (short line)
+Title: Prediccion de incidencias
 Version: 1.0
 Date: 2015-09-29
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Nora M. Villanueva and Javier Roca Pardinas
+Maintainer: Nora M. Villanueva <nmvillanueva@uvigo.es>
+Description: Analisis exploratorio y modelos de regresion
+License: GPL-2
+Imports:
+  mgcv,
+  dplyr

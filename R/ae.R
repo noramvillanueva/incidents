@@ -1,19 +1,19 @@
-#' Análisis exploratorio de los datos
+#' Analisis exploratorio de los datos
 #' 
-#' @description La función lleva a cabo un pequeño análisis
-#' exploratorio de los datos. Calcula el número total de 
+#' @description La funcion lleva a cabo un pequenho analisis
+#' exploratorio de los datos. Calcula el numero total de 
 #' incidencias, las incidencias por tipo, las incidencias 
 #' por mes, y por tipo y por mes, tanto para las incidencias
-#' provocadas en régimen de enfriamiento como de calentamiento.
+#' provocadas en regimen de enfriamiento como de calentamiento.
 #' 
-#' @param datos La base de datos que se creó utilizando la 
-#' función inci. 
+#' @param datos La base de datos que se creo utilizando la 
+#' funcion inci. 
 #' 
 #' @author Nora M. Villanueva y Javier Roca Pardinas
 #' 
 #' @examples
 #' library(incidents)
-#' ## Ojo, tarda unos minutos
+#' ## Tarda unos minutos
 #' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 #' # misdatos2<-inci(misdatos)
 #' # misdatos2 <-misdatos2[,-c(7,8)] 
@@ -49,30 +49,30 @@ dat <- datos
   f2 <- prop.table(t2)*100
   tcal <- table(inctipo1cal$tipo,inctipo1cal$mes) #cal
   cat("---------------------", "\n")
-  cat("Régimen Enfriamiento", "\n")
+  cat("Regimen Enfriamiento", "\n")
   cat("--------------------", "\n")
-  cat("Número incidencias totales:", ntot2, "\n")
+  cat("Numero incidencias totales:", ntot2, "\n")
   cat("", "\n")
-  cat("Número incidencias por tipo:", "\n")
+  cat("Numero incidencias por tipo:", "\n")
   print(incidenciastipoenf)
   cat("", "\n")
-  cat("Número incidencias por mes:", "\n")
+  cat("Numero incidencias por mes:", "\n")
   print(rbind(t1,f1))
   cat("", "\n")
-  cat("Número incidencias por tipo y por mes:", "\n")
+  cat("Numero incidencias por tipo y por mes:", "\n")
   print(tenf)
   cat("", "\n")
   cat("----------------------", "\n")
-  cat("Régimen Calentamiento", "\n")
+  cat("Regimen Calentamiento", "\n")
   cat("----------------------", "\n")
-  cat("Número incidencias totales:", ntot3, "\n")
-  cat("Número incidencias por tipo:", "\n")
+  cat("Numero incidencias totales:", ntot3, "\n")
+  cat("Numero incidencias por tipo:", "\n")
   print(incidenciastipocal)
   cat("", "\n")
-  cat("Número incidencias por mes:",  "\n")
+  cat("Numero incidencias por mes:",  "\n")
   print(rbind(t2,f2))
   cat("", "\n")
-  cat("Número incidencias por tipo y por mes:", "\n")
+  cat("Numero incidencias por tipo y por mes:", "\n")
   print(tcal)
   cat("", "\n")
 }

@@ -1,24 +1,25 @@
-#' Lectura y unión de base de datos
+#' Lectura y union de base de datos
 #' 
-#' @description La función permite leer muchos archivos y crear 
-#' una única base de datos. Si la base de datos final contiene muchos
-#' datos, esta función puede tardar bastante minutos.
+#' @description La funcion permite leer muchos archivos y crear 
+#' una unica base de datos. Si la base de datos final contiene 
+#' muchos datos, esta funcion puede tardar bastante minutos.
 #' 
 #' 
-#' @param file Un archivo con extensión .txt (por ejemplo). 
-#' Se incluye  el nombre de los archivos que van a ser leídos
+#' @param file Un archivo con extension .txt (por ejemplo). 
+#' Se incluye  el nombre de los archivos que van a ser leidos
 #' posteriormente.   
-#' @param file2 Un archivo con extensión .txt (por ejemplo).
-#' Se incluye el nombre de los archivos que van a ser leídos 
-#' posteriormente. Este segundo archivo contiene por ejemplo la variable 
-#' Temperatura exterior y queremos unirla a la base de datos 
-#' final. 
+#' @param file2 Un archivo con extension .txt (por ejemplo).
+#' Se incluye el nombre de los archivos que van a ser leidos 
+#' posteriormente. Este segundo archivo contiene por ejemplo 
+#' la variable Temperatura exterior y queremos unirla a la 
+#' base de datos final. 
 #' @author Nora M. Villanueva y Javier Roca Pardinas
 #' 
 #' @examples
 #' library(incidents)
-#' ## Ojo, tarda unos minutos
-#' # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
+#' ## Tarda unos minutos
+#' # misdatos <- readbbdd(file = "lista_all.txt", 
+#' #  file2 = "lista.txt")
 #' 
 #' @import dplyr
 #' @export
@@ -29,7 +30,6 @@ readbbdd <- function(file = file, file2 = NULL){
   lista = as.vector(read.table(paste0( "", file, "" )))  #
   lista = as.vector(lista[,1])
   nlista = length(lista)
- # source("~/R/fpreparafechas.R")
 
   if(!is.null(file2)){
     lista2 = as.vector(read.table(paste0( "", file2, "" )))
@@ -55,7 +55,8 @@ for (i in 1:nlista) {
         if(aux2[1] == tienda){
           tienda2 <- aux2[1]    
           datos2 <- read.csv2(file2) 
-          alldat <- merge( datos, datos2, by.x = "Fecha", by.y = "Fecha", all.x = TRUE )
+          alldat <- merge( datos, datos2, by.x = "Fecha", 
+                           by.y = "Fecha", all.x = TRUE )
         }
         
       }
@@ -72,13 +73,14 @@ for (i in 1:nlista) {
       dat <- datos }  
 }
   
-  ii=order(dat$tienda, dat$maquina,dat$ano,dat$mes,dat$dia,dat$hora,dat$minuto)
+  ii=order(dat$tienda, dat$maquina, dat$ano, 
+           dat$mes,dat$dia,dat$hora,dat$minuto)
   dat=dat[ii,]
   
   # creo variable tipo (calle y cc)
   tcalle <- c("T127", "T152", "T241", "T307", "T536", "T710", "T718", 
-              "T760", "T773", "T837", "T905", "T919", "T920", "T990", "T992", 
-              "T995", "T996", "T1001")
+              "T760", "T773", "T837", "T905", "T919", "T920", "T990", 
+              "T992",  "T995", "T996", "T1001")
   dat$tipo <- rep("cc", length(dat[, 1]))
   ii <- dat$tienda %in% tcalle
   dat$tipo[ii] <- "calle"
@@ -90,9 +92,9 @@ for (i in 1:nlista) {
   nt<-length(tt)
   ciudad<-c("sevilla", "ourense", "madrid", "ourense", "ourense", "lugo", 
             "pontevedra", "alicante", "pontevedra", "zaragoza", "valladolid",
-            "zaragoza", "zaragoza", "barcelona", "sevilla", "finestrat", "valladolid",
-            "ourense", "madrid", "madrid", "barcelona", "barcelona",
-            "madrid", "madrid", "madrid", "huelva", "madrid",
+            "zaragoza", "zaragoza", "barcelona", "sevilla", "finestrat",
+            "valladolid", "ourense", "madrid", "madrid", "barcelona", 
+            "barcelona", "madrid", "madrid", "madrid", "huelva", "madrid",
             "sevilla", "valladolid", "valencia")
   dat$ciudad <- rep(NA, length(dat[,1]))
   for(j in 1:nt){ 
@@ -100,15 +102,14 @@ for (i in 1:nlista) {
     dat$ciudad[ii] <- ciudad[j]  
   }
   
-  dat<-rename(dat, consigna = Consigna, ambiente = Ambiente, impulsion.aire = Impulsion.aire,
+  dat<-rename(dat, consigna = Consigna, ambiente = Ambiente,
+              impulsion.aire = Impulsion.aire,
               retorno.aire =  Retorno.aire, impulsion.agua = Impulsion.agua, 
               impulsion.agua.fria = Impulsion.agua.fria, 
               impulsion.agua.caliente = Impulsion.agua.caliente, 
              retorno.agua = Retorno.agua, estado.maquina = Estado.maquina, 
-              apertura.tienda =  Apertura.tienda, general = General, clima = Clima,
-              exterior = T.exterior)
- 
-  
+              apertura.tienda =  Apertura.tienda, general = General, 
+             clima = Clima, exterior = T.exterior) 
  dat
 }
 

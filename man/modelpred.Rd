@@ -2,43 +2,53 @@
 % Please edit documentation in R/modelpred.R
 \name{modelpred}
 \alias{modelpred}
-\title{Construcción de los modelos de predicción de incidencias}
+\title{Construccion de los modelos de prediccion de incidencias}
 \usage{
-modelpred(data, newdata, pred.days = 1)
+modelpred(data, newdata, pred.days = 1, cut.point = c(0.1, 0.1))
 }
 \arguments{
-\item{data}{La base de datos creada con la función hour2day.}
+\item{data}{La base de datos creada con la funcion hour2day.}
 
 \item{newdata}{Los nuevos valores a predecir incidencias.
 Nota: tiene que ser un objeto de la clase data.frame.}
 
-\item{pred.days}{Por defecto es 1. Indica que la predicción se
-hará para el día siguiente. Por ejemplo, si se pretende hacer
-predicción a dos días, se sustituye el 1 por el dos.}
+\item{pred.days}{Indica que la prediccion se hara para el dia
+ siguiente. Por defecto es 1. Por ejemplo, si se pretende hacer
+   prediccion a dos  dias, se sustituye el 1 por el dos.}
+
+\item{cut.point}{Vector con el punto de corte (o probabilidad)
+ seleccionado a partir de la cual entendemos que existe incidencia.
+ El primer valor es el punto de corte para el modelo de
+ enfriamiento mientras que el segundo valor para el modelo de
+ calentamiento.}
 }
 \description{
-La función construye dos modelos de predicción
-de incidencias. Uno para incidencias provocadas en régimen de
-enfriamiento y el otro para aquellas provocadas  en régimen
+La funcion construye dos modelos de prediccion
+de incidencias. Uno para incidencias provocadas en regimen de
+enfriamiento y el otro para aquellas provocadas  en regimen
 de calentamiento. Los modelos incluyen las covariables
 seleccionadas:
-amb.max: es la temperatura ambiente máxima (diaria) antes de que abra
-         la tienda, es decir,el mismo día que se quiere hacer la
-         predicción.
+
+amb.max: es la temperatura ambiente maxima (diaria) antes de que abra
+         la tienda, es decir,el mismo dia que se quiere hacer la
+         prediccion.
+
 amb.mean.on: es la temperatura ambiente media (diaria) durante el horario
-         comercial, es decir, el día antes de hacer la predicción.
+         comercial, es decir, el dia antes de hacer la prediccion.
+
 cli.mean: consumos de aire acondicionado (diario) durante el horario
-         comercial, es decir, el día antes de hacer la predicción.
-inci.5: número de incidencias los 5 días antes de hacer la predicción.
-       Es decir, si el día anterior hubo incidencia, dicha variable
-       sería igual a 1, si los 5 días antes ha habido incidencia, sería
-       igual a 5. Si ha habido incidencia durante 10 días consecutivos,
-       el valor máximo de dicha variable es de 5.
+         comercial, es decir, el dia antes de hacer la prediccion.
+
+inci.5: numero de incidencias los 5 dias antes de hacer la prediccion.
+       Es decir, si el dia anterior hubo incidencia, dicha variable
+       seria igual a 1, si los 5 dias antes ha habido incidencia, seria
+       igual a 5. Si ha habido incidencia durante 10 dias consecutivos,
+       el valor maximo de dicha variable es de 5.
 }
 \examples{
 library(incidents)
-# Ojo, tarda unos minutos
-# misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
+# Tarda unos minutos
+# misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt")
 # misdatos2<-inci(misdatos)
 # misdatos2 <-misdatos2[,-c(7,8)]
 # datosdia <- hour2day(misdatos2)
@@ -49,7 +59,8 @@ library(incidents)
 ## en una tienda con los siguientes valores:
 # datos2pred <-data.frame (amb.max = 40, amb.mean.on = 5,
 #              cli.mean = 150, inci.5d = 3)
-# modelpred(data = datosdia, pred.days = 1, newdata = datos2pred)
+# modelpred(data = datosdia, pred.days = 1, newdata = datos2pred,
+#  cut.point = c(0.1,0.1))
 }
 \author{
 Nora M. Villanueva y Javier Roca Pardinas

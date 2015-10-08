@@ -2,42 +2,43 @@
 % Please edit documentation in R/monitoring.R
 \name{monitoring}
 \alias{monitoring}
-\title{Análisis exploratorio de los datos}
+\title{Analisis exploratorio de los datos}
 \usage{
-monitoring(dat, año = año, mes = mes, dia = dia, tienda = tienda,
+monitoring(datos, ano = ano, mes = mes, dia = dia, tienda = tienda,
   maquina = maquina)
 }
 \arguments{
-\item{año}{El año que se quiere representar.}
+\item{datos}{La base de datos que se creo utilizando la
+funcion inci.}
+
+\item{ano}{El anho que se quiere representar.}
 
 \item{mes}{El mes que se quiere representar.}
 
-\item{dia}{El día que se quiere representar.}
+\item{dia}{El dia que se quiere representar.}
 
 \item{tienda}{La tienda que se quiere representar,
 entre comillas.}
 
 \item{maquina}{La maquina que se quiere representar,
 entre comillas.}
-
-\item{datos}{La base de datos que se creó utilizando la
-función inci.}
 }
 \description{
-La función hace un gráfico, para una tienda, una
-máquina, un año, un mes y un día. En él se representan todas
+La funcion hace un grafico, para una tienda, una
+maquina, un anho, un mes y un dia. En el se representan todas
 las variables como: temperatura ambiente, temperatura exterior,
- consumos general y clima, temperatura de impulsión y retorno
- de agua, y temperatura de impulsión y retorno de aire.
+ consumos general y clima, temperatura de impulsion y retorno
+ de agua, y temperatura de impulsion y retorno de aire.
 }
 \examples{
 library(incidents)
-# Ojo, tarda unos minutos
-# misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
+##  Tarda unos minutos
+# misdatos <- readbbdd(file = "lista_all.txt",
+#              file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
 # misdatos2 <-misdatos2[,-c(7,8)]
-# mianalisis <- monitoring(misdatos2, año = 2014, mes = 5,
-#                dia = 23, tienda = "T1001", maquina = "A61702")
+# monitoring(misdatos2, ano = 2014, mes = 5,
+#    dia = 23, tienda = "T1001", maquina = "A61702")
 }
 \author{
 Nora M. Villanueva y Javier Roca Pardinas

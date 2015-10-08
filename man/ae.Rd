@@ -2,24 +2,24 @@
 % Please edit documentation in R/ae.R
 \name{ae}
 \alias{ae}
-\title{Análisis exploratorio de los datos}
+\title{Analisis exploratorio de los datos}
 \usage{
 ae(datos)
 }
 \arguments{
-\item{datos}{La base de datos que se creó utilizando la
-función inci.}
+\item{datos}{La base de datos que se creo utilizando la
+funcion inci.}
 }
 \description{
-La función lleva a cabo un pequeño análisis
-exploratorio de los datos. Calcula el número total de
+La funcion lleva a cabo un pequenho analisis
+exploratorio de los datos. Calcula el numero total de
 incidencias, las incidencias por tipo, las incidencias
 por mes, y por tipo y por mes, tanto para las incidencias
-provocadas en régimen de enfriamiento como de calentamiento.
+provocadas en regimen de enfriamiento como de calentamiento.
 }
 \examples{
 library(incidents)
-## Ojo, tarda unos minutos
+## Tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
 # misdatos2 <-misdatos2[,-c(7,8)]

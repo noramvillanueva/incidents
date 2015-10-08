@@ -21,18 +21,18 @@ fnuminci12 <- function(data){
   data$preinci <- NULL
   data$preinci1 <- NULL
   data$preinci2 <- NULL
-  # preincidencia cuando la TA es !=  TC-2 < TA < TC + 2
+ ## preincidencia cuando la TA es !=  TC-2 < TA < TC + 2
   data$preinci<-ifelse(data$apertura.tienda == 1 &
                          data$estado.maquina >= 1 &
                          (data$ambiente > data$newcon + 2 |
                             data$newcon - 2 > data$ambiente),  1 , 0)  
-  #  preincidencia1 cuando la TA > TC + 2
-  #  en regimen ENFRIAMIENTO VERANO
+  ##  preincidencia1 cuando la TA > TC + 2
+  ##  en regimen ENFRIAMIENTO VERANO
   data$preinci1<-ifelse(data$apertura.tienda == 1 &
                          data$estado.maquina >= 1 &
                          data$ambiente > data$newcon + 2,  1 , 0) 
-  # preincidencia2 cuando  TA < TC-2 
-  #  en regimen CALENTAMIENTO INVIERNO
+  ## preincidencia2 cuando  TA < TC-2 
+  ##  en regimen CALENTAMIENTO INVIERNO
   data$preinci2<-ifelse(data$apertura.tienda == 1 &
                           data$estado.maquina >= 1 &
                           data$newcon - 2 > data$ambiente,  1 , 0)

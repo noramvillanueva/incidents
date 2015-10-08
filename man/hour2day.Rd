@@ -2,22 +2,22 @@
 % Please edit documentation in R/hour2day.R
 \name{hour2day}
 \alias{hour2day}
-\title{Creación de la base de datos diaria}
+\title{Creacion de la base de datos diaria}
 \usage{
 hour2day(datos)
 }
 \arguments{
-\item{datos}{La base de datos creada con la función inci.}
+\item{datos}{La base de datos creada con la funcion inci.}
 }
 \description{
-La función crea una nueva base de datos diaria, es
-decir, resume la información horaria en información diaria.
-Para ello se han creado nuevas variables. Por ejemplo, temperatura
-ambiente mínima, máxima o media.
+La funcion crea una nueva base de datos diaria, es
+decir, resume la informacion horaria en informacion diaria.
+Para ello se han creado nuevas variables. Por ejemplo,
+ temperatura ambiente minima, maxima o media.
 }
 \examples{
 library(incidents)
-## Ojo, tarda unos minutos
+## Tarda unos minutos
 # misdatos <- readbbdd(file = "lista_all.txt", file2 = "lista.txt)
 # misdatos2<-inci(misdatos)
 # datosdia <- hour2day(misdatos2)
