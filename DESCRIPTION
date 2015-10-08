@@ -6,7 +6,7 @@ Date: 2015-09-29
 Author: Nora M. Villanueva and Javier Roca Pardinas
 Maintainer: Nora M. Villanueva <nmvillanueva@uvigo.es>
 Description: Analisis exploratorio y modelos de regresion
-License: GPL-2
+License: GPL-3
 Imports:
   mgcv,
   dplyr
