@@ -42,23 +42,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 monitoring<-function(datos, ano = ano, mes = mes, dia = dia, 
-                            tienda = tienda, maquina = maquina){
-
+                     tienda = tienda, maquina = maquina){
   
- for (i in dia) {
-    fmonitoringnew(dia = i, mes = mes, ano = ano, 
-                   tienda = tienda, maquina = maquina, 
-                   dat = dat, mititulo = paste0(i, "/", mes, "/", ano))
+  
+  for (i in dia) {
+    fmonitoringnew(datos, dia = i, mes = mes, ano = ano, 
+                     tienda = tienda, maquina = maquina, 
+                     mititulo = paste0(i, "/", mes, "/", ano))
   }
 }

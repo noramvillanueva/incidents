@@ -64,7 +64,18 @@
 
 
 modelpred <- function(data,  newdata, pred.days = 1, cut.point = c(0.1, 0.1)){
+
 dat <- data
+
+jj <- which(dat$dia ==1 & dat$mes ==1)
+dat$inci[jj] = NA
+dat$inci1[jj] = NA
+dat$inci2[jj] = NA
+dat$amb.max[jj] = NA
+dat$amb.min[jj] = NA
+dat$amb.mean[jj] = NA
+dat$mes[jj] = NA
+
 dat$inci    <- lead(dat$inci, pred.days)
 dat$inci1   <- lead(dat$inci1, pred.days)
 dat$inci2   <- lead(dat$inci2, pred.days)
@@ -73,14 +84,14 @@ dat$amb.mean<- lead(dat$amb.mean, pred.days)
 dat$amb.min <- lead(dat$amb.min, pred.days)
 dat$mes     <- lead(dat$mes, pred.days)
 
-ii <- seq(365,6570, 365)
-dat$inci[ii]    <-NA
-dat$inci1[ii]   <-NA
-dat$inci2[ii]   <-NA
-dat$amb.max[ii] <-NA
-dat$amb.mean[ii]<-NA
-dat$amb.min[ii] <-NA
-dat$mes[ii]     <-NA
+#ii <- seq(365,6570, 365)
+#dat$inci[ii]    <-NA
+#dat$inci1[ii]   <-NA
+#dat$inci2[ii]   <-NA
+#dat$amb.max[ii] <-NA
+#dat$amb.mean[ii]<-NA
+#dat$amb.min[ii] <-NA
+#dat$mes[ii]     <-NA
 
 dat=na.omit(dat)
 
@@ -134,6 +145,4 @@ cat("---------------------", "\n")
 
 print(data.frame(newdata, prob1 = round(muhat1, 3), prob2 = round(muhat2, 3),
            predict1 = pred1, predict2 = pred2))
-
-
 }

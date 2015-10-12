@@ -24,7 +24,7 @@ temperatura ambiente menos 5 C.
 Regimen calentamiento, existe incidencia si
 Temperatura ambiente menor que la  Temperatura consigna
 menos 2 C, siendo la temperatura de consigna
-igual a 22 C, si la temperatura de impulsion del aire
+igual a 20 C, si la temperatura de impulsion del aire
  es mayor que la  temperatura ambiente mas 5 C.
 }
 \examples{

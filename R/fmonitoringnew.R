@@ -1,5 +1,5 @@
-fmonitoringnew <- function(dia, mes, ano, tienda, maquina, dat, mititulo){
-  
+fmonitoringnew <- function(dat, dia, mes, ano, tienda, maquina, mititulo){
+
   x <- dat$horamin[ dat$dia == dia & dat$mes == mes & 
                       dat$ano == ano & dat$tienda == tienda &
                       dat$maquina == maquina]
