@@ -1,11 +1,11 @@
 Package: incidents
 Type: Package
-Title: Predicción de incidencias
+Title: Prediction of machine failures
 Version: 1.0.0.9000
 Date: 2015-09-29
 Author: Nora M. Villanueva and Javier Roca Pardinas
 Maintainer: Nora M. Villanueva <nmvillanueva@uvigo.es>
-Description: Analisis exploratorio y modelos de regresion
+Description: An R package for predicting failures in machines. The prediction can be made with i.e. one day (or more) in advanced. The procedure is based on flexible regression models, particularly, generalized additive models.
 License: GPL-3
 Imports:
   mgcv,
