@@ -1,6 +1,8 @@
 
 # Incidents R package
-An R package for predicting failures in machine. The prediction can be made with i.e. one day (or more) in adavnaced, and it works for any type of failure. The procedure is based on flexible regression models, particularly, generalized additive models. 
+An R package for predicting failures in machines. Particuarly, for HVAC systems (Heating, ventilation, and air conditioning) which are the technology of indoor and vehicular environmental comfort. 
+
+This project was developed to provide a solution, based on bigdata and on machine learning techniques, to a company focused on energy efficiency. The compny needs are to know, in adavanced, when a particularly HVAC system failed (no matter the reason). The prediction can be made with i.e. one day (or more) in advanaced, and it works for any type of failure. The procedure is based on flexible regression models, particularly, generalized additive models. 
 
 ### Index
 * [Requirements](README.md#requirements)
